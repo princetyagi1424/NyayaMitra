@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NyayaMitra - AI Legal Assistant Prototype</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        
+        <!-- ================= SCREEN 1: LOGIN / ONBOARDING ================= -->
+        <div id="auth-screen" class="screen">
+            <div class="card auth-card">
+                <div class="logo-area">
+                    <h2>⚖️ NyayaMitra</h2>
+                    <p>Bharat ka Apna AI Legal & Rights Assistant</p>
+                </div>
+                <form id="userForm">
+                    <div class="input-group">
+                        <label>Full Name</label>
+                        <input type="text" id="name" placeholder="Aapka naam" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Mobile Number</label>
+                        <input type="tel" id="mobile" placeholder="10-digit mobile number" pattern="[0-9]{10}" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Preferred Language</label>
+                        <select id="language">
+                            <option value="hi">Hindi (हिंदी)</option>
+                            <option value="en">English</option>
+                            <option value="bn">Bengali (বাংলা)</option>
+                            <option value="mr">Marathi (मराठी)</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-primary">Enter NyayaMitra 🚀</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- ================= SCREEN 2: DASHBOARD (MAIN APP) ================= -->
+        <div id="dashboard-screen" class="screen hidden">
+            <!-- Header -->
+            <header class="app-header">
+                <div class="brand">⚖️ NyayaMitra</div>
+                <div class="user-profile">
+                    <span id="displayUserName">User</span>
+                    <button id="logoutBtn" class="btn-logout">Logout</button>
+                </div>
+            </header>
+
+            <!-- Main Content Area -->
+            <div class="main-content">
+                
+                <!-- Hero Input Section -->
+                <section class="hero-section">
+                    <h1>Apni Kanooni Samasya Batayein</h1>
+                    <p>Bolkar ya type karke apni problem share karein, AI turant sahi kanooni salah dega.</p>
+                    
+                    <div class="input-box-container">
+                        <textarea id="queryInput" placeholder="Jaise: Employer ne salary nahi di, ya cyber fraud ho gaya..."></textarea>
+                        <div class="action-bar">
+                            <button id="micBtn" class="mic-btn" title="Click to speak">
+                                🎙️ <span id="micText">Speak Problem</span>
+                            </button>
+                            <button id="submitQueryBtn" class="btn-primary-small">Ask AI Legal Advisor</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Quick Categories -->
+                <section class="categories-section">
+                    <h3>Common Issues (Click to test):</h3>
+                    <div class="category-grid">
+                        <div class="cat-chip" data-query="Mere employer ne pichle 2 mahine ki salary nahi di hai, kya karu?">💼 Labour & Salary Issue</div>
+                        <div class="cat-chip" data-query="Online shopping mein mere sath fraud ho gaya aur fake product mila, complaint kahan karu?">🛒 Consumer Fraud</div>
+                        <div class="cat-chip" data-query="Mera landlord bina notice ke room khali karne ka dabav daal raha hai.">🏠 Property Dispute</div>
+                        <div class="cat-chip" data-query="Mujhe online cyber bullying aur harassment ka samna karna pad raha hai.">💻 Cyber Crime</div>
+                    </div>
+                </section>
+
+                <!-- AI Response Card (Initially Hidden) -->
+                <section id="responseSection" class="response-section hidden">
+                    <div class="loading-spinner" id="loadingSpinner">
+                        <div class="spinner"></div>
+                        <p>Analyzing Indian Penal Code & Legal Rights...</p>
+                    </div>
+
+                    <div class="result-card hidden" id="resultCard">
+                        <div class="result-header">
+                            <span class="badge">AI Legal Verdict</span>
+                            <span class="act-name" id="resAct">Payment of Wages Act, 1936</span>
+                        </div>
+                        
+                        <div class="result-body">
+                            <h4>📋 Summary & Analysis</h4>
+                            <p id="resSummary">Aapka adhikar surakshit hai. Employer dwara bina karan salary rokna kanooni apradh hai.</p>
+                            
+                            <h4>⚡ Step-by-Step Action Plan</h4>
+                            <ul id="resSteps">
+                                <li>Formal Written Reminder (Email/WhatsApp) bhejein.</li>
+                                <li>Apne area ke Labour Commissioner office mein written complaint darj karein.</li>
+                                <li>NALSA (15100) par call karke free legal aid lawyer ki madad lein.</li>
+                            </ul>
+
+                            <div class="helpline-box">
+                                📞 <strong>Free Legal Helpline (NALSA):</strong> 15100 | <strong>Cyber Crime Helpline:</strong> 1930
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
